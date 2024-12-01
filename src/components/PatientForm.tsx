@@ -13,7 +13,7 @@ export default function PatientForm() {
             const activePatient = patients.filter(patient => patient.id === activeID)[0]
             setValue("name", activePatient.name)
             setValue("caretaker", activePatient.caretaker)
-            setValue("email",activePatient.caretaker)
+            setValue("email",activePatient.email)
             setValue("date", activePatient.date)
             setValue("symptoms", activePatient.symptoms)
             
@@ -23,6 +23,7 @@ export default function PatientForm() {
     const registerPatient = (data : DraftPatient) => {
         if(activeID){
             updatedPatient(data)
+            toast.success("Paciente editado correctamente")
         }else {
             addPatient(data);
             toast.success("Paciente registrado correctamente")
